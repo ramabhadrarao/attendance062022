@@ -143,8 +143,8 @@ def display_datagrid():
     savedata=st.button("save Data")
     if savedata:
         mycursor = mydb.cursor()
-        sql = "INSERT INTO attendance (batch, branch, courses, sem, attdate, period, regdno, attendance,subjectname) VALUES (%s, %s,%s, %s,%s, %s,%s, %s,%s)"
-        checksql="select count(*) from attendance where batch='"+str(batch)+"'and  branch='"+str(branch)+"' and courses='"+str(courses)+"' and sem='"+str(sem)+"' and attdate='"+str(attdate)+"' and period="+str(period)+" and subjectname='"+str(subjectname)+"'"
+        sql = "INSERT INTO attendance062022 (batch, branch, courses, sem, attdate, period, regdno, attendance,subjectname) VALUES (%s, %s,%s, %s,%s, %s,%s, %s,%s)"
+        checksql="select count(*) from attendance062022 where batch='"+str(batch)+"'and  branch='"+str(branch)+"' and courses='"+str(courses)+"' and sem='"+str(sem)+"' and attdate='"+str(attdate)+"' and period="+str(period)+" and subjectname='"+str(subjectname)+"'"
         st.write(checksql)
         mycursor.execute(checksql)
         (count,)=mycursor.fetchone()
@@ -188,7 +188,7 @@ def showconsolidated():
             'select subject?',
             ('S/w Testing', 'Bigdata Analysis','Project'))
         name=str(batch)+"_"+str(branch)+"_"+str(sem)
-        qry="select * from attendance where batch='"+str(batch)+"'and  branch='"+str(branch)+"' and courses='"+str(courses)+"' and sem='"+str(sem)+"' and  subjectname='"+str(subjectname)+"'"
+        qry="select * from attendance062022 where batch='"+str(batch)+"'and  branch='"+str(branch)+"' and courses='"+str(courses)+"' and sem='"+str(sem)+"' and  subjectname='"+str(subjectname)+"'"
         #st.write(qry)
         sql_query=pd.read_sql(qry,mydb)
         #tbl=pd.DataFrame(sql_query,columns=['id','batch','branch','courses','sem','attdate','period','regdno','attendance','subjectname'])
